@@ -1,0 +1,65 @@
+{
+  "model_a": "/root/autodl-tmp/jxleng/REID/output/features/transreid_move.npz",
+  "model_b": "/root/autodl-tmp/jxleng/REID/output/features/clipreid_move.npz",
+  "name_a": "TransReID",
+  "name_b": "CLIP-ReID",
+  "normalize_dist": true,
+  "best_fixed_alpha": null,
+  "query_adaptive": {
+    "topk": 10,
+    "min_alpha": 0.5,
+    "mean_alpha": 0.5,
+    "max_alpha": 0.5,
+    "prior": 0.0
+  },
+  "camera_confidence_alpha": {
+    "0->0": 0.5031081438064575,
+    "0->1": 0.45989635586738586,
+    "1->0": 0.4582308828830719,
+    "1->1": 0.5018476247787476
+  },
+  "metrics": [
+    {
+      "method": "TransReID",
+      "mAP": 0.15389894893570813,
+      "Rank-1": 0.09000000357627869,
+      "Rank-5": 0.2199999988079071,
+      "Rank-10": 0.4000000059604645
+    },
+    {
+      "method": "CLIP-ReID",
+      "mAP": 0.2404812738887115,
+      "Rank-1": 0.17000000178813934,
+      "Rank-5": 0.3700000047683716,
+      "Rank-10": 0.5049999952316284
+    },
+    {
+      "method": "fixed-distance alpha=0.400",
+      "mAP": 0.21867037594549874,
+      "Rank-1": 0.1550000011920929,
+      "Rank-5": 0.30000001192092896,
+      "Rank-10": 0.48500001430511475
+    },
+    {
+      "method": "query-adaptive topk=10",
+      "mAP": 0.2132695292144205,
+      "Rank-1": 0.1550000011920929,
+      "Rank-5": 0.28999999165534973,
+      "Rank-10": 0.44999998807907104
+    },
+    {
+      "method": "reciprocal-rank k=60",
+      "mAP": 0.2066275861031915,
+      "Rank-1": 0.14499999582767487,
+      "Rank-5": 0.3100000023841858,
+      "Rank-10": 0.46000000834465027
+    },
+    {
+      "method": "camera-conf topk=50",
+      "mAP": 0.21904355460146402,
+      "Rank-1": 0.1550000011920929,
+      "Rank-5": 0.28999999165534973,
+      "Rank-10": 0.4650000035762787
+    }
+  ]
+}

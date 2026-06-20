@@ -1,0 +1,31 @@
+{
+  "model_a": "/root/autodl-tmp/jxleng/REID/output/features/transreid_move.npz",
+  "model_b": "/root/autodl-tmp/jxleng/REID/output/features/clipreid_move.npz",
+  "k1": 20,
+  "k2": 6,
+  "lambda_value": 0.3,
+  "fixed_alpha": 0.4,
+  "metrics": [
+    {
+      "method": "TransReID rerank",
+      "mAP": 0.1520067275101482,
+      "Rank-1": 0.0949999988079071,
+      "Rank-5": 0.20499999821186066,
+      "Rank-10": 0.27000001072883606
+    },
+    {
+      "method": "CLIP-ReID rerank",
+      "mAP": 0.2489750141069928,
+      "Rank-1": 0.18000000715255737,
+      "Rank-5": 0.33500000834465027,
+      "Rank-10": 0.4650000035762787
+    },
+    {
+      "method": "fixed alpha=0.400 rerank",
+      "mAP": 0.21079261482709796,
+      "Rank-1": 0.13500000536441803,
+      "Rank-5": 0.2750000059604645,
+      "Rank-10": 0.375
+    }
+  ]
+}

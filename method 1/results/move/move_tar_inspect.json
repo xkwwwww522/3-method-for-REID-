@@ -1,0 +1,52 @@
+{
+  "train": {
+    "num_images": 0,
+    "num_ids": 0,
+    "num_cameras": 0,
+    "num_tracks": 0,
+    "camera_counts": {},
+    "first_images": [],
+    "bad_names": []
+  },
+  "query": {
+    "num_images": 200,
+    "num_ids": 100,
+    "num_cameras": 2,
+    "num_tracks": 1,
+    "camera_counts": {
+      "1": 98,
+      "2": 102
+    },
+    "first_images": [
+      "MOVE/query/0096/0096C2T0001F2040.jpg",
+      "MOVE/query/0096/0096C2T0001F2415.jpg",
+      "MOVE/query/0211/0211C2T0001F1230.jpg",
+      "MOVE/query/0211/0211C2T0001F1305.jpg",
+      "MOVE/query/0216/0216C1T0001F0889.jpg"
+    ],
+    "bad_names": []
+  },
+  "gallery": {
+    "num_images": 300,
+    "num_ids": 100,
+    "num_cameras": 2,
+    "num_tracks": 1,
+    "camera_counts": {
+      "1": 148,
+      "2": 152
+    },
+    "first_images": [
+      "MOVE/test/0096/0096C1T0001F1092.jpg",
+      "MOVE/test/0096/0096C1T0001F1106.jpg",
+      "MOVE/test/0096/0096C1T0001F1183.jpg",
+      "MOVE/test/0211/0211C1T0001F0770.jpg",
+      "MOVE/test/0211/0211C1T0001F0777.jpg"
+    ],
+    "bad_names": []
+  },
+  "query_gallery": {
+    "shared_ids": 100,
+    "query_only_ids": 0,
+    "gallery_only_ids": 0
+  }
+}
