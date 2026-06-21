@@ -1,0 +1,75 @@
+MODEL:
+  PRETRAIN_CHOICE: 'imagenet'
+  PRETRAIN_PATH: '/root/autodl-tmp/ylma/REID/weights/clip-reid/market/vit_clipreid_market.pth'
+  METRIC_LOSS_TYPE: 'triplet'
+  IF_LABELSMOOTH: 'on'
+  IF_WITH_CENTER: 'no'
+  NAME: 'ViT-B-16'
+  STRIDE_SIZE: [16, 16]
+  LORA_R: 32
+  ID_LOSS_WEIGHT: 0.25
+  TRIPLET_LOSS_WEIGHT: 1.0
+  I2T_LOSS_WEIGHT: 1.0
+
+INPUT:
+  SIZE_TRAIN: [256, 128]
+  SIZE_TEST: [256, 128]
+  PROB: 0.5
+  RE_PROB: 0.7
+  RE_MIN_AREA: 0.02
+  RE_MAX_AREA: 0.4
+  PADDING: 10
+  PIXEL_MEAN: [0.5, 0.5, 0.5]
+  PIXEL_STD: [0.5, 0.5, 0.5]
+
+DATALOADER:
+  SAMPLER: 'softmax_triplet'
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 8
+
+SOLVER:
+  MARGIN: 0.3
+  SEED: 1234
+  STAGE1:
+    IMS_PER_BATCH: 64
+    OPTIMIZER_NAME: "Adam"
+    BASE_LR: 0.00035
+    WARMUP_LR_INIT: 0.00001
+    LR_MIN: 1e-6
+    WARMUP_METHOD: 'linear'
+    WEIGHT_DECAY: 1e-4
+    WEIGHT_DECAY_BIAS: 1e-4
+    MAX_EPOCHS: 30
+    CHECKPOINT_PERIOD: 30
+    LOG_PERIOD: 50
+    WARMUP_EPOCHS: 5
+  STAGE2:
+    IMS_PER_BATCH: 64
+    OPTIMIZER_NAME: "Adam"
+    BASE_LR: 0.00005
+    WARMUP_METHOD: 'linear'
+    WARMUP_ITERS: 10
+    WARMUP_FACTOR: 0.1
+    WEIGHT_DECAY: 0.0001
+    WEIGHT_DECAY_BIAS: 0.0001
+    LARGE_FC_LR: False
+    MAX_EPOCHS: 40
+    CHECKPOINT_PERIOD: 40
+    LOG_PERIOD: 50
+    EVAL_PERIOD: 10
+    BIAS_LR_FACTOR: 2
+    STEPS: [20, 30]
+    GAMMA: 0.1
+
+TEST:
+  EVAL: True
+  IMS_PER_BATCH: 64
+  RE_RANKING: False
+  WEIGHT: ''
+  NECK_FEAT: 'before'
+  FEAT_NORM: 'yes'
+
+DATASETS:
+  NAMES: ('market1501')
+  ROOT_DIR: ('/root/autodl-tmp/ylma/REID/data')
+OUTPUT_DIR: '/root/autodl-tmp/ylma/REID/output/grid_search/E11_r32_p07_a02_40'
